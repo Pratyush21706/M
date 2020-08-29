@@ -175,7 +175,7 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text("  °",width/3.5,height/4.5)
+//                        text("  °",width/3.5,height/4.5)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
@@ -192,7 +192,7 @@ drawSprites();
 //              console.log(i)
 //          }
 textStyle("normal")
-            text(Math.round(temp),width/10,height/3.8)
+            text(Math.round(temp)+"°",width/10,height/3.8)
 textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
