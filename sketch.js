@@ -175,7 +175,7 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text(" °",width/3.5,height/4.5)
+                       text("  °",width/3.5,height/4.5)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
