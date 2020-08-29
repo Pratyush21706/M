@@ -175,17 +175,19 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text("°",width/2.5,height/4.2)
+                       text("°",width/2.38,height/4.2)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
                        textSize(30)
 //          console.log(description)
 //                       console.log(country)
-textFont("Mangal")
-             text(name+", "+country ,width/2.15,height/5)
-            textSize(90);
             textFont(`Alegreya Sans`)
+textStyle("bold")
+             text(name+", "+country ,width/2.18,height/3.8)
+             text("29 August 2020", width/2.18 , height/5)
+            textSize(100);
+            textStyle("normal")
 ////          for(var i =0; i++ ; i=temp){
 //              console.log(i)
 //          }
@@ -194,15 +196,15 @@ textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
             fill("#fffffff")
-                       text(humidity+"%",width/8,height/1.52)
+                       text(humidity+"%",width/9.2,height/1.52)
 
              textSize(30)
-                       text(+preassure+".hPa",width/1.4,height/1.53)
-             text(Math.round(windSpeed)+`K/PH`,width/2.3,height/1.53)
+                       text(+preassure+".hPa",width/1.5,height/1.53)
+             text(Math.round(windSpeed)+`K/PH`,width/2.35,height/1.53)
 textSize(22)
 fill("black")
-             text(Math.round(feel)+`°`,width/2.55,height/2.95)
-             text(hr+":"+mn,width/1.6,height/2.95)
+             text(Math.round(feel)+`°`,width/2.5,height/2.95)
+             text(hr+":"+mn,width/1.5,height/2.95)
 
         
 //             input1.position(width/1.65,height/30)
