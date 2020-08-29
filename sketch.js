@@ -183,7 +183,7 @@ drawSprites();
 //          console.log(description)
 //                       console.log(country)
             textFont(`Alegreya Sans`)
-textStyle("bold")
+
              text(name+", "+country ,width/2.18,height/3.8)
              text("29 August 2020", width/2.18 , height/5)
             textSize(100);
@@ -191,6 +191,7 @@ textStyle("bold")
 ////          for(var i =0; i++ ; i=temp){
 //              console.log(i)
 //          }
+textStyle("normal")
             text(Math.round(temp),width/10,height/3.8)
 textFont("Mangal")
              textSize(40)
@@ -205,7 +206,7 @@ fill("black")
              text(Math.round(feel)+`°`,width/2.5,height/2.95)
              text(hr+":"+mn,width/1.5,height/2.95)
 fill("white")
-                               text(+preassure+"hPa",width/1.45,height/1.53)
+                               text(+preassure+" hPa",width/1.45,height/1.53)
 
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
