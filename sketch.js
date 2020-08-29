@@ -5,6 +5,7 @@ var nation = `india`
 var api = `https://api.openweathermap.org/data/2.5/weather?q=`
 var apiKey =`&appid=ca869b8d4f1a1a9fa1b200e5cef8d33a`;
 var units = `&units=metric`
+var hr,mn,sc,day,month,year;
 var r=255 , g = 50, b=0;
 
 function preload(){
@@ -96,7 +97,50 @@ function setup(){
           country = coming.sys.country;
         
              description = coming.weather.id;
+             hr = hour();
+             mn =minute();
+             sc = second();
+//              dy = day();
+//             month = month();
+//year = year();
           a=2;
+
+        }
+        if(hr===13){
+          hr =1
+        }
+        if(hr===14){
+          hr =2
+        }
+        if(hr===15){
+          hr =3
+        }
+        if(hr===16){
+          hr =4
+        }
+        if(hr===17){
+          hr =5
+        }
+        if(hr===18){
+          hr =6
+        }
+        if(hr===19){
+          hr =7
+        }
+        if(hr===20){
+          hr =8
+        }
+        if(hr===21){
+          hr =9
+        }
+        if(hr===22){
+          hr =10
+        }
+        if(hr===23){
+          hr =11
+        }
+        if(hr===24){
+          hr =12
         }
         if(report){
           country1 = report.country;
@@ -131,37 +175,34 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text("°",width/2.2,height/4.8)
+                       text("°",width/2.5,height/4.2)
              textSize(10)
- text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
+//  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
                        textSize(30)
 //          console.log(description)
 //                       console.log(country)
-
-             text(name+", "+country ,width/2,height/5)
+textFont("Mangal")
+             text(name+", "+country ,width/2.15,height/5)
             textSize(90);
-            textFont(`Alegreya Sans `)
-         for(var i =0; i++ ; i=temp){
-             console.log(i)
-            
-         }
-
- textFont(`MANGAL`)
-            text(Math.round(temp),width/4.2,height/3.8)
+            textFont(`Alegreya Sans`)
+////          for(var i =0; i++ ; i=temp){
+//              console.log(i)
+//          }
+            text(Math.round(temp),width/5,height/3.8)
+textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
             fill("#fffffff")
                        text(humidity+"%",width/8,height/1.52)
 
-             textSize(28)
-                       text(+preassure+".hPa",width/1.5,height/1.53)
-                                    textSize(30)
-
-             text(Math.round(windSpeed)+`K/PH`,width/2.4,height/1.53)
+             textSize(30)
+                       text(+preassure+".hPa",width/1.4,height/1.53)
+             text(Math.round(windSpeed)+`K/PH`,width/2.3,height/1.53)
+textSize(22)
 fill("black")
-textSize(20)
-             text(Math.round(feel)+`°`,width/2.35,height/2.95)
+             text(Math.round(feel)+`°`,width/2.55,height/2.95)
+             text(hr+":"+mn,width/1.6,height/2.95)
 
         
 //             input1.position(width/1.65,height/30)
