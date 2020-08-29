@@ -175,7 +175,7 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text("°",width/2.38,height/4.2)
+                       text("°C",width/3.5,height/4.5)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
@@ -191,22 +191,22 @@ textStyle("bold")
 ////          for(var i =0; i++ ; i=temp){
 //              console.log(i)
 //          }
-            text(Math.round(temp),width/5,height/3.8)
+            text(Math.round(temp),width/10,height/3.8)
 textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
             fill("#fffffff")
-                       text(humidity+"%",width/9.2,height/1.52)
+                       text(humidity+"%",width/9.3,height/1.52)
 
              textSize(30)
-                       text(+preassure+".hPa",width/1.5,height/1.53)
-             text(Math.round(windSpeed)+`K/PH`,width/2.35,height/1.53)
+             text(Math.round(windSpeed)+`K/PH`,width/2.4,height/1.53)
 textSize(22)
 fill("black")
              text(Math.round(feel)+`°`,width/2.5,height/2.95)
              text(hr+":"+mn,width/1.5,height/2.95)
+fill("white")
+                               text(+preassure+".hPa",width/1.5,height/1.53)
 
-        
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
 
