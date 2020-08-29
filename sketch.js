@@ -140,22 +140,28 @@ drawSprites();
 //                       console.log(country)
 
              text(name+", "+country ,width/2,height/5)
-            textSize(80);
-            textFont(`Mangal`)
-////          for(var i =0; i++ ; i=temp){
-//              console.log(i)
-//          }
-            text(Math.round(temp),width/3.5,height/3.8)
+            textSize(90);
+            textFont(`Alegreya Sans `)
+         for(var i =0; i++ ; i=temp){
+             console.log(i)
+            
+         }
 
+ textFont(`MANGAL`)
+            text(Math.round(temp),width/4.2,height/3.8)
              textSize(40)
 //           textStyle("bold")
             fill("#fffffff")
                        text(humidity+"%",width/8,height/1.52)
 
-             textSize(30)
-                       text(+preassure+".hPa",width/1.4,height/1.53)
-             text(Math.round(feel)+`°`,width/1.9,height/1.085)
-             text(Math.round(windSpeed)+`K/PH`,width/2.3,height/1.53)
+             textSize(28)
+                       text(+preassure+".hPa",width/1.5,height/1.53)
+                                    textSize(30)
+
+             text(Math.round(windSpeed)+`K/PH`,width/2.4,height/1.53)
+fill("black")
+textSize(20)
+             text(Math.round(feel)+`°`,width/2.35,height/2.95)
 
         
 //             input1.position(width/1.65,height/30)
