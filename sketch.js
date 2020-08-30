@@ -17,29 +17,35 @@ function preload(){
 }
 function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
+var col = color(25, 23, 200, 1);
 
   input1 = createInput(`Delhi`).attribute(`placeholder`,`Enter Your Location`);
-  input1.position(width/4,height/1.1);
+  input1.position(width/4,height/1.09);
   input1.style(`font-size`,`17px`)
+    input1.style(`border`,`100px`)
+    input1.style(`background-color`,"#FDEDE4")
 
   input2 = createInput(`India`).attribute(`placeholder`,`Enter Your Location`);
   input2.position(width/2.64,-555);
   input2.style(`font-size`,`20px`)
 
-  button = createButton(`🔎`)
-  button.position(width/1.5,height/1.1)
-  button.mousePressed(weatherAsk);
-  button.style(`font-size`,`20px`)
-
-  button1 = createButton(`🔎`)
+     button1 = createButton(`🔍`)
   button1.position(width/1.756,-555)
   button1.mousePressed(change);
-  button1.style(`font-size`,`10px`)
+  button1.style(`font-size`,`20px`)
+        button1.style(`background-color`,`#EF5600`)
+        button1.style(`border`,`0px`)
 
-  button2 = createButton(`🌏Search`)
-  button2.position(width/1.756,-555)
-  button2.mousePressed(doing);
-  button2.style(`font-size`,`15px`)
+ button = createButton(`🔍`)
+    button.position(width/1.75,height/1.1)
+      button.mousePressed(weatherAsk);
+     button.style(`font-size`,`21px`)
+        button.style(`background-color`,col)
+        button.style(`border`,`0px`)
+
+
+ 
+
 
 //  covidUrl = link+nation;
 //  loadJSON(covidUrl, gotCorona);
@@ -51,6 +57,9 @@ function setup(){
     var url = api+city+apiKey+units;
     loadJSON(url, gotData);
     a = 3;
+      button.position(20,-555)
+            input1.position(20,-555)
+
   }
 
   function gotData(data){
@@ -61,9 +70,9 @@ function setup(){
     report = info
   }
   function change(){
-    input1.position(width/3,height/10);
-    button.position(width/1.35,height/10)
-      button1.position(width/2,-555)
+    input1.position(width/2,10);
+    button.position(width/1.1,8)
+//      button1.position(width/1.1,-555)
 
 
   }
@@ -197,7 +206,7 @@ drawSprites();
   
      if(a===2){
        background(sunny)
-  button1.position(width/1.1,5)
+   button1.position(width/1.1,8)
 
        if(temp<20){
         //  background(c1)
@@ -219,7 +228,7 @@ textStyle("bold")
   text(" Longitude ",11,height/1.155)
     text("Population ",width/25,height/1.08)
     fill("black")
-    text(Math.round(population),width/19,height/1.04)
+    text(Math.round(population),width/21,height/1.04)
  text(Math.round(lat),width/10,height/1.192)
  text(Math.round(lon),width/10,height/1.11)
 
@@ -350,7 +359,7 @@ text(Math.round(temp5)+"°",width/1.14,height/1.115)
 
        textSize(40);
        fill("fffffff")
-       text(`loading...`, width / 1.5, height / 2)
+       text(`loading...`, width / 2.5, height / 2)
 
        textSize(20);
   }
