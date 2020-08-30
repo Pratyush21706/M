@@ -7,10 +7,12 @@ var apiKey =`&appid=ca869b8d4f1a1a9fa1b200e5cef8d33a`;
 var units = `&units=metric`
 var hr,mn,sc,day,month,year;
 var r=255 , g = 50, b=0;
+var icon,iconImg;
 
 function preload(){
   s1 = loadImage("1.png")
   sunny = loadImage("Sunny.png")
+    iconImg = loadImage("http://openweathermap.org/img/wn/10d@2x.png")
 }
 function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
@@ -96,7 +98,9 @@ function setup(){
           preassure = coming.main.pressure;
           country = coming.sys.country;
         
-             description = coming.weather.id;
+             des = coming.weather[0].id;
+             icon = coming.weather[0].icon;
+             
              hr = hour();
              mn =minute();
              sc = second();
@@ -104,7 +108,7 @@ function setup(){
 //             month = month();
 //year = year();
           a=2;
-
+image(iconImg,200,200)
         }
         if(hr===13){
           hr =1
@@ -175,7 +179,7 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-//                        text("  °",width/3.5,height/4.5)
+                       text(" °",width/3.5,height/4.5)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
@@ -184,7 +188,7 @@ drawSprites();
 //                       console.log(country)
             textFont(`Alegreya Sans`)
 
-             text(name+", "+country ,width/2.18,height/3.8)
+             text(name+", "+des ,width/2.18,height/3.8)
              text("29 August 2020", width/2.18 , height/5)
             textSize(100);
             textStyle("normal")
@@ -192,7 +196,7 @@ drawSprites();
 //              console.log(i)
 //          }
 textStyle("normal")
-            text(Math.round(temp)+"°",width/10,height/3.8)
+            text(Math.round(temp),width/10,height/3.8)
 textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
@@ -206,7 +210,7 @@ fill("black")
              text(Math.round(feel)+`°`,width/2.5,height/2.95)
              text(hr+":"+mn,width/1.5,height/2.95)
 fill("white")
-                               text(+preassure+" hPa",width/1.45,height/1.53)
+                               text(+preassure+"hPa",width/1.45,height/1.53)
 
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
