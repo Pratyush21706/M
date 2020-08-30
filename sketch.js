@@ -24,7 +24,7 @@ var col = color(25, 23, 200, 1);
   input1.position(width/4,height/1.09);
   input1.style(`font-size`,`17px`)
     input1.style(`border`,`100px`)
-    input1.style(`background-color`,"#FDEDE4")
+    input1.style(`background-color`,"#87CEEB")
 
   input2 = createInput(`India`).attribute(`placeholder`,`Enter Your Location`);
   input2.position(width/2.64,-555);
@@ -34,7 +34,7 @@ var col = color(25, 23, 200, 1);
   button1.position(width/1.756,-555)
   button1.mousePressed(change);
   button1.style(`font-size`,`20px`)
-        button1.style(`background-color`,`#EF5600`)
+        button1.style(`background-color`,`#87CEEB`)
         button1.style(`border`,`0px`)
 
  button = createButton(`🔍`)
@@ -49,14 +49,14 @@ var col = color(25, 23, 200, 1);
   button3.position(width/1.756,-555)
   button3.mousePressed(changer);
   button3.style(`font-size`,`20px`)
-        button3.style(`background-color`,`#EF5600`)
+        button3.style(`background-color`,`#87CEEB`)
         button3.style(`border`,`0px`)
  
     button4 = createButton(`Weather Updates`)
   button4.position(width/1.756,-555)
   button4.mousePressed(retriver);
   button4.style(`font-size`,`20px`)
-        button4.style(`background-color`,`#EF5600`)
+        button4.style(`background-color`,`#87CEEB`)
         button4.style(`border`,`0px`)
 
 
@@ -357,7 +357,8 @@ fill("black")
             text(Math.round(feel)+`°`,width/2.4,height/2.95)
             text("Time: "+hr+":"+mn,width/1.85,height/2.95)
              button4.position(3,-555)
-             
+//                         input1.position(20,-555)
+
          }
 fill("white")
                               text(+preassure+"hPa",width/1.4,height/1.53)
