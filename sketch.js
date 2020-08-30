@@ -2,12 +2,13 @@ var bg,input1,a = 1,z=1,temp,c1,h1,input1,button,location,wind,humidity,coming;
 var div1,report,covidUrl;
 var link = `https://coronavirus-19-api.herokuapp.com/countries/`
 var nation = `india`
-var api = `https://api.openweathermap.org/data/2.5/weather?q=`
+var api = `https://api.openweathermap.org/data/2.5/forecast?q=`
 var apiKey =`&appid=ca869b8d4f1a1a9fa1b200e5cef8d33a`;
 var units = `&units=metric`
 var hr,mn,sc,day,month,year;
 var r=255 , g = 50, b=0;
 var icon,iconImg;
+// var y=2020, montho=1||2||3||4;
 
 function preload(){
   s1 = loadImage("1.png")
@@ -16,6 +17,7 @@ function preload(){
 }
 function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
+
   input1 = createInput(`Delhi`).attribute(`placeholder`,`Enter Your Location`);
   input1.position(width/4,height/1.1);
   input1.style(`font-size`,`17px`)
@@ -29,7 +31,7 @@ function setup(){
   button.mousePressed(weatherAsk);
   button.style(`font-size`,`20px`)
 
-  button1 = createButton(`Change Country`)
+  button1 = createButton(`🔎`)
   button1.position(width/1.756,-555)
   button1.mousePressed(change);
   button1.style(`font-size`,`10px`)
@@ -59,9 +61,9 @@ function setup(){
     report = info
   }
   function change(){
-    input2.position(width/3,height/1.5);
-    button2.position(width/1.35,height/1.5)
-      button1.position(width/1.756,-555)
+    input1.position(width/3,height/10);
+    button.position(width/1.35,height/10)
+      button1.position(width/2,-555)
 
 
   }
@@ -77,169 +79,280 @@ function setup(){
 
   function draw(){
     background(s1)
+//     console.log(montho);
        if(keyDown("Space")){
         weatherAsk();
       }
 
          if(coming){
-          z = 2;
-          humidity = coming.main.humidity;
-          temp = coming.main.temp;
+//              console.log(coming)
+         
+         z = 2;
+         humidity = coming.list[0].main.humidity;
+         temp = coming.list[0].main.temp;
 
-          windSpeed = coming.wind.speed;
-          windD = coming.wind.deg;
+         windSpeed = coming.list[0].wind.speed;
+         windD = coming.list[0].wind.deg;
 
-          name = coming.name;
+        name = coming.city.name;
+        feel = coming.list[0].main.feels_like;
+         preassure = coming.list[0].main.pressure;
+        country = coming.city.country;
+                 population= coming.city.population;
 
-          lat = coming.coord.lat;
-          lon = coming.coord.lon;
+        lat =coming.city.coord.lat;
+        lon =coming.city.coord.lon;
 
-         feel = coming.main.feels_like;
-          preassure = coming.main.pressure;
-          country = coming.sys.country;
-        
-             des = coming.weather[0].main;
-             icon = coming.weather[0].icon;
+       
+            des = coming.list[0].weather[0].main;
+            icon = coming.list[0].weather[0].icon;
+            
+             //Day 1
+                      temp1 = coming.list[5].main.temp;
+des1 = coming.list[5].weather[0].main
+// console.log(date)
              
-             hr = hour();
-             mn =minute();
-             sc = second();
+              //Day 2
+                      temp2 = coming.list[13].main.temp;
+des2 = coming.list[13].weather[0].main
+
+              //Day 3
+                      temp3 = coming.list[21].main.temp;
+des3 = coming.list[21].weather[0].main
+
+              //Day4
+                      temp4 = coming.list[29].main.temp;
+des4 = coming.list[29].weather[0].main
+
+              //Day 5
+                      temp5 = coming.list[37].main.temp;
+des5 = coming.list[37].weather[0].main
+
+             
+            hr = hour();
+            mn =minute();
+            sc = day();
+// sc = 25;
+
 //              dy = day();
 //             month = month();
 //year = year();
-          a=2;
+         a=2;
 image(iconImg,200,200)
-        }
-        if(hr===13){
-          hr =1
-        }
-        if(hr===14){
-          hr =2
-        }
-        if(hr===15){
-          hr =3
-        }
-        if(hr===16){
-          hr =4
-        }
-        if(hr===17){
-          hr =5
-        }
-        if(hr===18){
-          hr =6
-        }
-        if(hr===19){
-          hr =7
-        }
-        if(hr===20){
-          hr =8
-        }
-        if(hr===21){
-          hr =9
-        }
-        if(hr===22){
-          hr =10
-        }
-        if(hr===23){
-          hr =11
-        }
-        if(hr===24){
-          hr =12
-        }
-        if(report){
-          country1 = report.country;
+       }
+       if(hr===13){
+         hr =1
+       }
+       if(hr===14){
+         hr =2
+       }
+       if(hr===15){
+         hr =3
+       }
+       if(hr===16){
+         hr =4
+       }
+       if(hr===17){
+         hr =5
+       }
+       if(hr===18){
+         hr =6
+       }
+       if(hr===19){
+         hr =7
+       }
+       if(hr===20){
+         hr =8
+       }
+       if(hr===21){
+         hr =9
+       }
+       if(hr===22){
+         hr =10
+       }
+       if(hr===23){
+         hr =11
+       }
+       if(hr===24){
+         hr =12
+       }
+       if(report){
+         country1 = report.country;
 cases = report.cases;
 recover = report.recovered;
 deaths = report.deaths;
 active = report.active;
 critical = report.critical;
 totalT = report.totalTests;
-        }
+       }
 
 drawSprites();
-    if(a===1){
-     let need = input1.value();
-      textStyle("bold")
-        fill("Red")
-        textSize(20)
-      text(need,width/2,height/6)
-    }
-   
-      if(a===2){
-        background(sunny)
-//   button1.position(width/1.4,height/1.5)
+   if(a===1){
+    let need = input1.value();
+     textStyle("bold")
+       fill("Red")
+       textSize(20)
+     text(need,width/2,height/6)
+   }
+  
+     if(a===2){
+       background(sunny)
+  button1.position(width/1.1,5)
 
-        if(temp<20){
-         //  background(c1)
-        }
-          if(temp>20){
-           //  background(h1)
-          }           
-            fill("black")
-            
-             textSize(40)
-             textStyle("normal")
+       if(temp<20){
+        //  background(c1)
+       }
+         if(temp>20){
+          //  background(h1)
+         }           
+           fill("white")
+           
+            textSize(40)
+            textStyle("normal")
 //                        text(" °",width/3.5,height/4.5)
-             textSize(10)
-//  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
+            textSize(20)
+//  fill("white")
+textStyle("bold")
+ text("Latitude",width/19,height/1.24)
+
+
+  text(" Longitude ",11,height/1.155)
+    text("Population ",width/25,height/1.08)
+    fill("black")
+    text(Math.round(population),width/19,height/1.04)
+ text(Math.round(lat),width/10,height/1.192)
+ text(Math.round(lon),width/10,height/1.11)
+
+ fill("black")
+ textStyle("normal")
 //             text(,width/12,height/2.05)
-                       textSize(30)
+                      textSize(30)
 //          console.log(description)
 //                       console.log(country)
-            textFont(`Alegreya Sans`)
+           textFont(`Alegreya Sans`)
 
-             text(name+", "+country ,width/2.18,height/5)
-             text(des, width/2.18 , height/3.8)
-            textSize(100);
-            textStyle("normal")
+           text(name+" "+country ,width/2.18,height/5)
+            text(des, width/2.18 , height/3.8)
+           textSize(100);
+           textStyle("normal")
 ////          for(var i =0; i++ ; i=temp){
 //              console.log(i)
 //          }
 textStyle("normal")
-            text(Math.round(temp)+"°",width/10,height/3.8)
+           text(Math.round(temp)+"°",width/11,height/3.8)
 textFont("Mangal")
-             textSize(40)
+            textSize(40)
 //           textStyle("bold")
-            fill("#fffffff")
-                       text(humidity+"%",width/10,height/1.52)
+           fill("#fffffff")
+                      text(humidity+"%",width/10,height/1.52)
 
-             textSize(30)
-             text(Math.round(windSpeed)+`K/PH`,width/2.5,height/1.53)
+            textSize(30)
+            text(Math.round(windSpeed)+`K/PH`,width/2.5,height/1.53)
+textSize(18)
+text(des1,width/3.25,height/1.07)
+text(des2,width/2.25,height/1.07)
+text(des3,width/1.7,height/1.07)
+text(des4,width/1.35,height/1.07)
+text(des5,width/1.16,height/1.07)
+textSize(30)
+// date1 = sc+1;
+// date2 = sc+2;
+// date3 = sc+3;
+// date4 = sc+4;
+// date5 = sc+5;
+
+date1 = 31
+date2 = 01
+date3 = 02
+date4 = 03
+date5 = 04
+
+// if(date1==="32"){
+//   date1 = 1;
+// }
+// if(date2==="32"){
+//   date2 = 99;
+// }
+// if(date3==="32"){
+//   date3 = 1;
+// }
+// if(date4==="32"){
+//   date4 = 1;
+// }
+// if(date5==="32"){
+//   date5 = 1;
+//}
+
+// if(date1==="33"){
+//   date1 = 2;
+// }
+// if(date2==="33"){
+//   date2 = 2;
+// }
+// if(date3==="33"){
+//   date3 = 2;
+// }
+// if(date4==="33"){
+//   date4 = 2;
+// }
+// if(date5==="33"){
+//   date5 = 2;
+// }
+
+// text(date1,width/3.15, height/1.22)
+// text(date2,width/2.15,height/1.22)
+// text(date3,width/1.63,height/1.22)
+// text(date4,width/1.33,height/1.22)
+// text(date5,width/1.13,height/1.22)
+
+text(date1,width/3.15, height/1.22)
+text("0"+date2,width/2.15,height/1.22)
+text("0"+date3,width/1.63,height/1.22)
+text("0"+date4,width/1.33,height/1.22)
+text("0"+date5,width/1.13,height/1.22)
+textStyle("normal")
 textSize(22)
+
 fill("black")
-             text(Math.round(feel)+`°`,width/2.4,height/2.95)
-             text(hr+":"+mn,width/1.4,height/2.95)
+            text(Math.round(feel)+`°`,width/2.4,height/2.95)
+            text("Time: "+hr+":"+mn,width/1.85,height/2.95)
 fill("white")
-                               text(+preassure+"hPa",width/1.4,height/1.53)
+                              text(+preassure+"hPa",width/1.4,height/1.53)
+                              textSize(32)
+text(Math.round(temp1)+"°",width/3.15,height/1.115)
+text(Math.round(temp2)+"°",width/2.15,height/1.115)
+text(Math.round(temp3)+"°",width/1.65,height/1.115)
+text(Math.round(temp4)+"°",width/1.35,height/1.115)
+text(Math.round(temp5)+"°",width/1.14,height/1.115)
 
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
 
 //             button.position(width/1.28,height/30)
 //             button.style(`font-size`,`11px`)
+    }
+      if(a ===3){
+     input1.position(width / 4, -555);
+       button.position(width / 1.5, -555)
+       textStyle("bold");
+     if(frameCount%4===0){
+       r =random(0,255);
+       g= random(0,255);
+     b =random(0,255)
      }
-       if(a ===3){
-      input1.position(width / 4, -555);
-        button.position(width / 1.5, -555)
-        textStyle("bold");
-      if(frameCount%4===0){
-        r =random(0,255);
-        g= random(0,255);
-      b =random(0,255)
-      }
 
-        //           console.log("r: "+r)
-        //            console.log("g: "+g)
-        //            console.log("b: "+b)
-        rectMode(CENTER)
-        fill(rgb(r, g, b, 80))
-        rect(window.innerWidth / 2, window.innerHeight / 2, width, height)
+       //           console.log("r: "+r)
+       //            console.log("g: "+g)
+       //            console.log("b: "+b)
+       rectMode(CENTER)
+       fill(rgb(r, g, b, 80))
+       rect(window.innerWidth / 2, window.innerHeight / 2, width, height)
 
-        textSize(40);
-        fill("fffffff")
-        text(`loading...`, width / 1.8, height / 2)
+       textSize(40);
+       fill("fffffff")
+       text(`loading...`, width / 1.5, height / 2)
 
-        textSize(20);
-   }
-}
+       textSize(20);
+  }
+  }
  
