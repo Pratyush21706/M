@@ -98,7 +98,7 @@ function setup(){
           preassure = coming.main.pressure;
           country = coming.sys.country;
         
-             des = coming.weather[0].id;
+             des = coming.weather[0].main;
              icon = coming.weather[0].icon;
              
              hr = hour();
@@ -179,7 +179,7 @@ drawSprites();
             
              textSize(40)
              textStyle("normal")
-                       text(" °",width/3.5,height/4.5)
+//                        text(" °",width/3.5,height/4.5)
              textSize(10)
 //  text("lat: "+Math.round(description)+"  lon: "+Math.round(lon),width/12,height/3)
 //             text(,width/12,height/2.05)
@@ -188,15 +188,15 @@ drawSprites();
 //                       console.log(country)
             textFont(`Alegreya Sans`)
 
-             text(name+", "+des ,width/2.18,height/3.8)
-             text("29 August 2020", width/2.18 , height/5)
+             text(name+", "+country ,width/2.18,height/5)
+             text(des, width/2.18 , height/3.8)
             textSize(100);
             textStyle("normal")
 ////          for(var i =0; i++ ; i=temp){
 //              console.log(i)
 //          }
 textStyle("normal")
-            text(Math.round(temp),width/10,height/3.8)
+            text(Math.round(temp)+"°",width/10,height/3.8)
 textFont("Mangal")
              textSize(40)
 //           textStyle("bold")
@@ -207,10 +207,10 @@ textFont("Mangal")
              text(Math.round(windSpeed)+`K/PH`,width/2.5,height/1.53)
 textSize(22)
 fill("black")
-             text(Math.round(feel)+`°`,width/2.5,height/2.95)
-             text(hr+":"+mn,width/1.5,height/2.95)
+             text(Math.round(feel)+`°`,width/2.4,height/2.95)
+             text(hr+":"+mn,width/1.4,height/2.95)
 fill("white")
-                               text(+preassure+"hPa",width/1.45,height/1.53)
+                               text(+preassure+"hPa",width/1.4,height/1.53)
 
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
@@ -222,26 +222,11 @@ fill("white")
       input1.position(width / 4, -555);
         button.position(width / 1.5, -555)
         textStyle("bold");
-        if (r > 150) {
-            r = r - 1
-        }
-        if (r < 200) {
-            //               r=201
-            g = g + 1
-        }
-        if (g > 255) {
-            b = b + 1
-
-        }
-        if (b > 300) {
-            b = 301
-
-            g = g - 2
-        }
-        if (g < -2) {
-            r++
-            g++
-        }
+      if(frameCount%4===0){
+        r =random(0,255);
+        g= random(0,255);
+      b =random(0,255)
+      }
 
         //           console.log("r: "+r)
         //            console.log("g: "+g)
@@ -252,7 +237,7 @@ fill("white")
 
         textSize(40);
         fill("fffffff")
-        text(`loading...`, width / 2.1, height / 1.5)
+        text(`loading...`, width / 1.8, height / 2)
 
         textSize(20);
    }
